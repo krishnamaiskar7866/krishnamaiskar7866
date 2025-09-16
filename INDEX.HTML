@@ -6,164 +6,124 @@
     <title>Krishna Maiskar | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    background: #333;
-    color: #fff;
-    padding: 4rem 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
-.social-links a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #0077b5; /* LinkedIn color */
-}
-
-section {
-    padding: 4rem 0;
-}
-
-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #2c3e50;
-}
-
-#about {
-    background: #fff;
-}
-
-#about p {
-    font-size: 1.1rem;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-#experience {
-    background: #e9ecef;
-}
-
-.job-item {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.job-item h3 {
-    font-size: 1.5rem;
-    color: #34495e;
-}
-
-.job-item p {
-    font-style: italic;
-    color: #7f8c8d;
-    margin-bottom: 10px;
-}
-
-.job-item ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.job-item ul li {
-    margin-bottom: 5px;
-}
-
-#skills {
-    background: #fff;
-}
-
-.skill-list {
-    text-align: center;
-}
-
-.skill-list span {
-    display: inline-block;
-    background: #2c3e50;
-    color: #fff;
-    padding: 8px 15px;
-    margin: 5px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-#projects {
-    background: #e9ecef;
-}
-
-.project-item {
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.project-item h3 {
-    color: #34495e;
-}
-
-.project-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.project-link:hover {
-    text-decoration: underline;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-}
+        :root {
+            --bg-main: #f4f4f4;
+            --bg-card: #fff;
+            --accent: #4a90e2;
+            --card-shadow: 0 8px 32px rgba(52,73,94,0.1);
+            --text-main: #2e2e2e;
+            --headline: #3498db;
+            --dark: #2e2e2e;
+        }
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        /* Header */
+        header {
+            background: linear-gradient(90deg, var(--dark) 60%, var(--accent) 100%);
+            color: #fff;
+            padding: 4rem 0 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(75,98,155,0.08);
+            border-radius: 0 0 2rem 2rem;
+            position: relative;
+        }
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+        header p {
+            font-size: 1.15rem;
+            background: rgba(74,144,226,0.08);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .social-links { margin-top: 1.2rem; }
+        .social-links a {
+            color: #fff;
+            margin: 0 12px;
+            font-size: 2rem;
+            transition: color 0.3s;
+        }
+        .social-links a:hover { color: var(--accent); }
+        /* Section headings */
+        section h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin-bottom: 2.2rem;
+            color: var(--headline);
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        /* Card styles */
+        .job-item, .project-item {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s;
+        }
+        .job-item:hover, .project-item:hover { box-shadow: 0 6px 32px rgba(52,73,94,0.12); }
+        /* Skills */
+        .skill-list { text-align: center; }
+        .skill-list span {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 19px;
+            margin: 6px;
+            border-radius: 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .skill-list span:hover { background: var(--dark); }
+        /* Project Links */
+        .project-link {
+            color: var(--headline);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            margin-top: 10px;
+        }
+        .project-link:hover {
+            color: #217dbb;
+            text-decoration: underline;
+        }
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            text-align: center;
+            padding: 28px 0;
+            border-top: 5px solid var(--accent);
+            font-size: 1.12rem;
+            border-radius: 0 0 2rem 2rem;
+            margin-top: 3rem;
+        }
+        /* Responsive */
+        @media (max-width: 700px) {
+            header h1 { font-size: 2rem; }
+            section h2 { font-size: 1.5rem; }
+            .container { padding: 8px; }
+        }
     </style>
 </head>
 <body>
-
     <header>
         <div class="container">
             <h1>Krishna Maiskar</h1>
@@ -175,14 +135,12 @@ footer {
             </div>
         </div>
     </header>
-
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>Hello! I'm Krishna Maiskar, a passionate and dedicated Full-Stack .NET Developer with 2.8 years of hands-on experience in building robust web applications. [cite_start]I am seeking a Software Engineer position to expand my knowledge and skills for the growth of an organization[cite: 321, 322]. My expertise includes **ASP.NET Core**, **MVC**, and **SQL Server**. I am eager to apply my skills to contribute to the growth of a dynamic organization.</p>
+            <p>Hello! I'm Krishna Maiskar, a passionate and dedicated Full-Stack .NET Developer with 2.8 years of hands-on experience in building robust web applications. My expertise includes <strong>ASP.NET Core</strong>, <strong>MVC</strong>, and <strong>SQL Server</strong>. I am eager to apply my skills to contribute to the growth of a dynamic organization.</p>
         </div>
     </section>
-
     <section id="experience">
         <div class="container">
             <h2>Work Experience</h2>
@@ -190,29 +148,28 @@ footer {
                 <h3>Jr. Software Developer | NexusLink Private Limited</h3>
                 <p>April 2023 – Present</p>
                 <ul>
-                    [cite_start]<li>Contributed to projects using **Asp.Net Core**, **MVC**, **Asp.Net**, **SQL**, and **React.js**[cite: 323].</li>
-                    [cite_start]<li>Utilized **Jira** and **LaunchDarkly**[cite: 333].</li>
+                    <li>Contributed to projects using <strong>Asp.Net Core</strong>, <strong>MVC</strong>, <strong>Asp.Net</strong>, <strong>SQL</strong>, and <strong>React.js</strong>.</li>
+                    <li>Utilized <strong>Jira</strong> and <strong>LaunchDarkly</strong>.</li>
                 </ul>
             </div>
             <div class="job-item">
                 <h3>Software Developer | Ysoft Solution</h3>
                 <p>March 2022 – March 2023</p>
                 <ul>
-                    [cite_start]<li>Developed applications using **MVC**, **SQL**, **Web-API**, and **Asp.Net Core**[cite: 326].</li>
-                    [cite_start]<li>Implemented dynamic menu bindings based on user roles and multi-stage record approval processes[cite: 350].</li>
+                    <li>Developed applications using <strong>MVC</strong>, <strong>SQL</strong>, <strong>Web-API</strong>, and <strong>Asp.Net Core</strong>.</li>
+                    <li>Implemented dynamic menu bindings and multi-stage record approval processes.</li>
                 </ul>
             </div>
             <div class="job-item">
                 <h3>Software Developer | Avyak Infoways</h3>
                 <p>June 2021 – Feb 2022</p>
                 <ul>
-                    [cite_start]<li>Worked on projects using **Asp.Net MVC**, **Blazor**, **Web-API**, and **SQL**[cite: 329].</li>
-                    [cite_start]<li>Created applications with multiple user roles, where menu visibility was dynamically controlled by the database[cite: 356].</li>
+                    <li>Worked on projects using <strong>Asp.Net MVC</strong>, <strong>Blazor</strong>, <strong>Web-API</strong>, and <strong>SQL</strong>.</li>
+                    <li>Created applications with multiple user roles with dynamic menu control.</li>
                 </ul>
             </div>
         </div>
     </section>
-
     <section id="skills">
         <div class="container">
             <h2>Technical Skills</h2>
@@ -237,57 +194,52 @@ footer {
             </div>
         </div>
     </section>
-
     <section id="projects">
         <div class="container">
             <h2>Projects</h2>
             <div class="project-item">
                 <h3>Adventure of USA</h3>
-                <p>A web application used for managing passes, events, and tourist place bookings for various regions in the USA. [cite_start]Technologies: **ASP.NET Core**, **MVC**, **SQL**, **React.js**[cite: 342].</p>
+                <p>Web app for managing passes, events, and tourist bookings in USA. <strong>ASP.NET Core, MVC, SQL, React.js</strong></p>
             </div>
             <div class="project-item">
                 <h3>PT Trakindo Cat</h3>
-                <p>An application for the authorized Caterpillar dealer network in Indonesia, with multiple user roles and a dynamic menu based on roles from the database. [cite_start]Technologies: **ASP.NET MVC**, **SQL 2018**, **GitHub**[cite: 350, 351].</p>
+                <p>Caterpillar dealer app for Indonesia, dynamic menu based on user roles. <strong>ASP.NET MVC, SQL 2018, GitHub</strong></p>
             </div>
             <div class="project-item">
                 <h3>RoboSensei</h3>
-                <p>A student attendance system project developed with multiple user roles like Admin, Teacher, and Student, using LINQ and SQL stored procedures to manage data. [cite_start]Technologies: **ASP.NET Core**, **SQL 2018**, **GitHub**, **Blazor**[cite: 353, 356, 357].</p>
+                <p>Student attendance system with roles and LINQ, SQL procedures. <strong>ASP.NET Core, SQL 2018, GitHub, Blazor</strong></p>
             </div>
             <div class="project-item">
                 <h3>DVC</h3>
-                [cite_start]<p>A government water management project for industries in the Jharkhand state, which calculates water usage for large industrial plants[cite: 359, 360]. [cite_start]Technologies: **ASP.NET Core**, **SQL 2018**[cite: 357].</p>
+                <p>Jharkhand water management for industries. <strong>ASP.NET Core, SQL 2018</strong></p>
             </div>
         </div>
     </section>
-
     <section id="education">
         <div class="container">
             <h2>Academic Progress</h2>
             <div class="job-item">
                 <h3>B.E. Computer Science | D A Degree Engineering Technology</h3>
-                [cite_start]<p>Pursuing (Current Semester 8) [cite: 362]</p>
+                <p>Pursuing (Current Semester 8)</p>
             </div>
             <div class="job-item">
-                <h3>Diploma in Computer Engineering | Government Polytechnics College, Ahmedabad</h3>
-                [cite_start]<p>June 2021 [cite: 362]</p>
+                <h3>Diploma in Computer Engineering | Govt. Polytechnics College, Ahmedabad</h3>
+                <p>June 2021</p>
             </div>
         </div>
     </section>
-
     <section id="personal">
         <div class="container">
             <h2>Personal Details</h2>
-            [cite_start]<p><strong>Date of Birth:</strong> 13/02/2003 [cite: 375]</p>
-            [cite_start]<p><strong>Gender:</strong> Male [cite: 375]</p>
-            [cite_start]<p><strong>Languages:</strong> English, Hindi, Marathi, Gujarati [cite: 375]</p>
+            <p><strong>Date of Birth:</strong> 13/02/2003</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Languages:</strong> English, Hindi, Marathi, Gujarati</p>
         </div>
     </section>
-
     <footer>
         <div class="container">
             <p>&copy; 2025 Krishna Maiskar. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
