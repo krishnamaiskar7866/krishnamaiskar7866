@@ -3,243 +3,782 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishna Maiskar | Portfolio</title>
+    <title>Krishna Maiskar | Full-Stack .NET Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #f4f4f4;
-            --bg-card: #fff;
-            --accent: #4a90e2;
-            --card-shadow: 0 8px 32px rgba(52,73,94,0.1);
-            --text-main: #2e2e2e;
-            --headline: #3498db;
-            --dark: #2e2e2e;
+            --bg-main: #0a192f;
+            --bg-secondary: #112240;
+            --accent: #64ffda;
+            --text-main: #ccd6f6;
+            --text-light: #a8b2d1;
+            --text-dark: #8892b0;
+            --card-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
             background: var(--bg-main);
             color: var(--text-main);
+            line-height: 1.6;
         }
+
         .container {
-            max-width: 960px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 0 50px;
         }
-        /* Header */
+
+        /* Header & Navigation */
         header {
-            background: linear-gradient(90deg, var(--dark) 60%, var(--accent) 100%);
-            color: #fff;
-            padding: 4rem 0 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 24px rgba(75,98,155,0.08);
-            border-radius: 0 0 2rem 2rem;
+            background: rgba(10, 25, 47, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 10px 0;
             position: relative;
         }
-        header h1 {
-            font-size: 3rem;
-            letter-spacing: 1px;
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(100, 255, 218, 0.1);
+            filter: blur(50px);
+            top: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 700;
-            margin-bottom: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
         }
-        header p {
-            font-size: 1.15rem;
-            background: rgba(74,144,226,0.08);
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-        }
-        .social-links { margin-top: 1.2rem; }
-        .social-links a {
-            color: #fff;
-            margin: 0 12px;
-            font-size: 2rem;
-            transition: color 0.3s;
-        }
-        .social-links a:hover { color: var(--accent); }
-        /* Section headings */
-        section h2 {
-            text-align: center;
-            font-size: 2.25rem;
-            margin-bottom: 2.2rem;
-            color: var(--headline);
-            letter-spacing: 1px;
+
+        .hero-content h2 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
             font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--text-dark);
         }
-        /* Card styles */
-        .job-item, .project-item {
-            background: var(--bg-card);
-            border-radius: 14px;
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: var(--card-shadow);
-            transition: box-shadow 0.3s;
+
+        .hero-content p {
+            max-width: 540px;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            font-size: 1.1rem;
         }
-        .job-item:hover, .project-item:hover { box-shadow: 0 6px 32px rgba(52,73,94,0.12); }
-        /* Skills */
-        .skill-list { text-align: center; }
-        .skill-list span {
-            background: var(--accent);
-            color: #fff;
-            padding: 10px 19px;
-            margin: 6px;
-            border-radius: 24px;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background 0.3s;
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        .cta-button {
             display: inline-block;
-        }
-        .skill-list span:hover { background: var(--dark); }
-        /* Project Links */
-        .project-link {
-            color: var(--headline);
+            padding: 15px 30px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
             margin-top: 10px;
         }
-        .project-link:hover {
-            color: #217dbb;
-            text-decoration: underline;
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
         }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--accent);
+        }
+
+        .job-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        .job-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .job-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .job-item .date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .job-item ul {
+            list-style: none;
+        }
+
+        .job-item li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .job-item li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            background: var(--accent);
+            color: var(--bg-main);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-tech span {
+            color: var(--text-dark);
+            font-size: 0.8rem;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-item h3 {
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .education-item p {
+            color: var(--text-light);
+        }
+
+        /* Personal Details */
+        .personal-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-item {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-item h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .detail-item p {
+            color: var(--text-light);
+        }
+
         /* Footer */
         footer {
-            background: var(--dark);
-            color: #fff;
+            background: var(--bg-secondary);
+            padding: 50px 0 30px;
             text-align: center;
-            padding: 28px 0;
-            border-top: 5px solid var(--accent);
-            font-size: 1.12rem;
-            border-radius: 0 0 2rem 2rem;
-            margin-top: 3rem;
         }
-        /* Responsive */
-        @media (max-width: 700px) {
-            header h1 { font-size: 2rem; }
-            section h2 { font-size: 1.5rem; }
-            .container { padding: 8px; }
+
+        .footer-content {
+            margin-bottom: 30px;
+        }
+
+        .footer-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--bg-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
     <header>
+        <div class="container header-container">
+            <a href="#" class="logo">K.M.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#personal">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h1>Krishna Maiskar</h1>
-            <p>B.Tech. Computer (pursuing) | Full-Stack .NET Developer</p>
+            <div class="hero-content">
+                <h1>Hi, I'm Krishna Maiskar</h1>
+                <h2>Full-Stack .NET Developer</h2>
+                <p>I'm a passionate developer specializing in building exceptional digital experiences with <span class="highlight">ASP.NET Core, MVC, and modern web technologies</span>. Currently, I'm focused on building accessible, human-centered products.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/krishna-maiskar-79a022203" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/krishnamaiskar7866" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:krishna.maiskar13@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Krishna Maiskar, a passionate and dedicated Full-Stack .NET Developer with 2.8 years of hands-on experience in building robust web applications. My expertise includes <strong>ASP.NET Core</strong>, <strong>MVC</strong>, and <strong>SQL Server</strong>.</p>
+                    <p>I am passionate about creating efficient, scalable, and user-friendly applications that solve real-world problems. My journey in tech has equipped me with a diverse skill set and the ability to adapt to new challenges quickly.</p>
+                    <p>I am eager to apply my skills to contribute to the growth of a dynamic organization where I can continue to learn and grow as a developer.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Placeholder for profile image -->
+                    <div style="background: var(--bg-secondary); height: 300px; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user" style="font-size: 5rem; color: var(--accent);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="job-item">
+                    <h3>Jr. Software Developer</h3>
+                    <span class="date">April 2023 – Present</span>
+                    <h4>NexusLink Private Limited</h4>
+                    <ul>
+                        <li>Contributed to projects using <strong>Asp.Net Core</strong>, <strong>MVC</strong>, <strong>Asp.Net</strong>, <strong>SQL</strong>, and <strong>React.js</strong>.</li>
+                        <li>Utilized <strong>Jira</strong> and <strong>LaunchDarkly</strong> for project management and feature flagging.</li>
+                        <li>Collaborated with cross-functional teams to deliver high-quality software solutions.</li>
+                    </ul>
+                </div>
+                <div class="job-item">
+                    <h3>Software Developer</h3>
+                    <span class="date">March 2022 – March 2023</span>
+                    <h4>Ysoft Solution</h4>
+                    <ul>
+                        <li>Developed applications using <strong>MVC</strong>, <strong>SQL</strong>, <strong>Web-API</strong>, and <strong>Asp.Net Core</strong>.</li>
+                        <li>Implemented dynamic menu bindings and multi-stage record approval processes.</li>
+                        <li>Participated in code reviews and contributed to architectural decisions.</li>
+                    </ul>
+                </div>
+                <div class="job-item">
+                    <h3>Software Developer</h3>
+                    <span class="date">June 2021 – Feb 2022</span>
+                    <h4>Avyak Infoways</h4>
+                    <ul>
+                        <li>Worked on projects using <strong>Asp.Net MVC</strong>, <strong>Blazor</strong>, <strong>Web-API</strong>, and <strong>SQL</strong>.</li>
+                        <li>Created applications with multiple user roles with dynamic menu control.</li>
+                        <li>Developed and maintained database schemas and stored procedures.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">C#</span>
+                        <span class="skill-item">ASP.NET Core</span>
+                        <span class="skill-item">ASP.NET MVC</span>
+                        <span class="skill-item">Web API</span>
+                        <span class="skill-item">LINQ</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">HTML5</span>
+                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">React.js</span>
+                        <span class="skill-item">jQuery</span>
+                        <span class="skill-item">Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Database</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">SQL Server</span>
+                        <span class="skill-item">Database Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">Postman</span>
+                        <span class="skill-item">Jira</span>
+                        <span class="skill-item">LaunchDarkly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Adventure of USA</h3>
+                    <p>Web application for managing passes, events, and tourist bookings across various attractions in the USA.</p>
+                    <div class="project-tech">
+                        <span>ASP.NET Core</span>
+                        <span>MVC</span>
+                        <span>SQL</span>
+                        <span>React.js</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>PT Trakindo Cat</h3>
+                    <p>Caterpillar dealer application for Indonesia with dynamic menu system based on user roles and permissions.</p>
+                    <div class="project-tech">
+                        <span>ASP.NET MVC</span>
+                        <span>SQL 2018</span>
+                        <span>GitHub</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>RoboSensei</h3>
+                    <p>Student attendance system with role-based access control and advanced reporting features using LINQ and SQL procedures.</p>
+                    <div class="project-tech">
+                        <span>ASP.NET Core</span>
+                        <span>SQL 2018</span>
+                        <span>GitHub</span>
+                        <span>Blazor</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>DVC</h3>
+                    <p>Jharkhand water management system for industries with monitoring and reporting capabilities.</p>
+                    <div class="project-tech">
+                        <span>ASP.NET Core</span>
+                        <span>SQL 2018</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Academic Progress</h2>
+            </div>
+            <div class="education-item">
+                <h3>B.E. Computer Science</h3>
+                <p>D A Degree Engineering Technology</p>
+                <p>Pursuing (Current Semester 8)</p>
+            </div>
+            <div class="education-item">
+                <h3>Diploma in Computer Engineering</h3>
+                <p>Govt. Polytechnics College, Ahmedabad</p>
+                <p>Completed: June 2021</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Details Section -->
+    <section id="personal">
+        <div class="container">
+            <div class="section-title">
+                <h2>Personal Details</h2>
+            </div>
+            <div class="personal-details">
+                <div class="detail-item">
+                    <h3>Date of Birth</h3>
+                    <p>13/02/2003</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Gender</h3>
+                    <p>Male</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Languages</h3>
+                    <p>English, Hindi, Marathi, Gujarati</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Get in touch with me</p>
+                <a href="mailto:krishna.maiskar13@gmail.com" class="cta-button">Say Hello</a>
+            </div>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/krishna-maiskar-79a022203" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/krishnamaiskar7866" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="mailto:krishna.maiskar13@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-        </div>
-    </header>
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Hello! I'm Krishna Maiskar, a passionate and dedicated Full-Stack .NET Developer with 2.8 years of hands-on experience in building robust web applications. My expertise includes <strong>ASP.NET Core</strong>, <strong>MVC</strong>, and <strong>SQL Server</strong>. I am eager to apply my skills to contribute to the growth of a dynamic organization.</p>
-        </div>
-    </section>
-    <section id="experience">
-        <div class="container">
-            <h2>Work Experience</h2>
-            <div class="job-item">
-                <h3>Jr. Software Developer | NexusLink Private Limited</h3>
-                <p>April 2023 – Present</p>
-                <ul>
-                    <li>Contributed to projects using <strong>Asp.Net Core</strong>, <strong>MVC</strong>, <strong>Asp.Net</strong>, <strong>SQL</strong>, and <strong>React.js</strong>.</li>
-                    <li>Utilized <strong>Jira</strong> and <strong>LaunchDarkly</strong>.</li>
-                </ul>
-            </div>
-            <div class="job-item">
-                <h3>Software Developer | Ysoft Solution</h3>
-                <p>March 2022 – March 2023</p>
-                <ul>
-                    <li>Developed applications using <strong>MVC</strong>, <strong>SQL</strong>, <strong>Web-API</strong>, and <strong>Asp.Net Core</strong>.</li>
-                    <li>Implemented dynamic menu bindings and multi-stage record approval processes.</li>
-                </ul>
-            </div>
-            <div class="job-item">
-                <h3>Software Developer | Avyak Infoways</h3>
-                <p>June 2021 – Feb 2022</p>
-                <ul>
-                    <li>Worked on projects using <strong>Asp.Net MVC</strong>, <strong>Blazor</strong>, <strong>Web-API</strong>, and <strong>SQL</strong>.</li>
-                    <li>Created applications with multiple user roles with dynamic menu control.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skill-list">
-                <span>C#</span>
-                <span>ASP.NET Core</span>
-                <span>ASP.NET MVC</span>
-                <span>ASP.NET</span>
-                <span>SQL Server 2018</span>
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>Bootstrap</span>
-                <span>LINQ</span>
-                <span>JavaScript</span>
-                <span>jQuery</span>
-                <span>React.js</span>
-                <span>Web API</span>
-                <span>GitHub</span>
-                <span>Postman</span>
-                <span>Jira</span>
-                <span>LaunchDarkly</span>
-            </div>
-        </div>
-    </section>
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-item">
-                <h3>Adventure of USA</h3>
-                <p>Web app for managing passes, events, and tourist bookings in USA. <strong>ASP.NET Core, MVC, SQL, React.js</strong></p>
-            </div>
-            <div class="project-item">
-                <h3>PT Trakindo Cat</h3>
-                <p>Caterpillar dealer app for Indonesia, dynamic menu based on user roles. <strong>ASP.NET MVC, SQL 2018, GitHub</strong></p>
-            </div>
-            <div class="project-item">
-                <h3>RoboSensei</h3>
-                <p>Student attendance system with roles and LINQ, SQL procedures. <strong>ASP.NET Core, SQL 2018, GitHub, Blazor</strong></p>
-            </div>
-            <div class="project-item">
-                <h3>DVC</h3>
-                <p>Jharkhand water management for industries. <strong>ASP.NET Core, SQL 2018</strong></p>
-            </div>
-        </div>
-    </section>
-    <section id="education">
-        <div class="container">
-            <h2>Academic Progress</h2>
-            <div class="job-item">
-                <h3>B.E. Computer Science | D A Degree Engineering Technology</h3>
-                <p>Pursuing (Current Semester 8)</p>
-            </div>
-            <div class="job-item">
-                <h3>Diploma in Computer Engineering | Govt. Polytechnics College, Ahmedabad</h3>
-                <p>June 2021</p>
-            </div>
-        </div>
-    </section>
-    <section id="personal">
-        <div class="container">
-            <h2>Personal Details</h2>
-            <p><strong>Date of Birth:</strong> 13/02/2003</p>
-            <p><strong>Gender:</strong> Male</p>
-            <p><strong>Languages:</strong> English, Hindi, Marathi, Gujarati</p>
-        </div>
-    </section>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Krishna Maiskar. All rights reserved.</p>
+            <p class="copyright">&copy; 2025 Krishna Maiskar. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
