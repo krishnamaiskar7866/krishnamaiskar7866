@@ -28,12 +28,14 @@
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-            background: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+       body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0a192f, #1a1a2e, #16213e);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
 
         .container {
             max-width: 1200px;
@@ -291,6 +293,37 @@
         }
 
         /* Skills Section */
+		/* Skills Section Enhancements */
+.skill-category {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+
+/* Skill Items as Badges */
+.skill-item {
+  background: #1f4068;
+  color: #64ffda;
+  padding: 6px 14px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+/* Hover Effect */
+.skill-item:hover {
+  background: #64ffda;
+  color: #0a192f;
+  box-shadow: 0 5px 12px rgba(100,255,218,0.4);
+}
+
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -519,7 +552,6 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#personal">Contact</a></li>
             </ul>
         </div>
     </header>
@@ -565,44 +597,66 @@
 
     <!-- Experience Section -->
     <section id="experience">
-        <div class="container">
-            <div class="section-title">
-                <h2>Work Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="job-item">
-                    <h3>Jr. Software Developer</h3>
-                    <span class="date">April 2023 – Present</span>
-                    <h4>NexusLink Private Limited</h4>
-                    <ul>
-                        <li>Contributed to projects using <strong>Asp.Net Core</strong>, <strong>MVC</strong>, <strong>Asp.Net</strong>, <strong>SQL</strong>, and <strong>React.js</strong>.</li>
-                        <li>Utilized <strong>Jira</strong> and <strong>LaunchDarkly</strong> for project management and feature flagging.</li>
-                        <li>Collaborated with cross-functional teams to deliver high-quality software solutions.</li>
-                    </ul>
-                </div>
-                <div class="job-item">
-                    <h3>Software Developer</h3>
-                    <span class="date">March 2022 – March 2023</span>
-                    <h4>Ysoft Solution</h4>
-                    <ul>
-                        <li>Developed applications using <strong>MVC</strong>, <strong>SQL</strong>, <strong>Web-API</strong>, and <strong>Asp.Net Core</strong>.</li>
-                        <li>Implemented dynamic menu bindings and multi-stage record approval processes.</li>
-                        <li>Participated in code reviews and contributed to architectural decisions.</li>
-                    </ul>
-                </div>
-                <div class="job-item">
-                    <h3>Software Developer</h3>
-                    <span class="date">June 2021 – Feb 2022</span>
-                    <h4>Avyak Infoways</h4>
-                    <ul>
-                        <li>Worked on projects using <strong>Asp.Net MVC</strong>, <strong>Blazor</strong>, <strong>Web-API</strong>, and <strong>SQL</strong>.</li>
-                        <li>Created applications with multiple user roles with dynamic menu control.</li>
-                        <li>Developed and maintained database schemas and stored procedures.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Work Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="job-item">
+        <h3>Spectra Technovision (India) Pvt. Ltd.</h3>
+        <span class="date">May 2024 – Present | Ahmedabad, India</span>
+        <ul>
+          <li>Developing enterprise solutions using <strong>ASP.NET Core</strong>, <strong>MVC</strong>, <strong>SQL</strong>, <strong>React.js</strong>.</li>
+          <li>Worked on scalable web modules integrating authentication, reporting, and workflows.</li>
+          <li>Collaborated with cross-functional teams to enhance product performance and user experience.</li>
+          <li>Collaborated with <strong>Jira</strong> for agile project tracking and feature flagging.</li>
+        </ul>
+        <p><strong>Key Project:</strong> Enterprise Access Management System – Designed and implemented modules for employee access control, role-based permissions, and security audits.</p>
+        <p><strong>Technologies:</strong> ASP.NET Core, Web API, SQL Server, MySQL, Oracle, React.js, GitHub</p>
+      </div>
+
+      <div class="job-item">
+        <h3>NexusLink Services India Pvt. Ltd.</h3>
+        <span class="date">Apr 2023 – May 2024 | Ahmedabad, India</span>
+        <ul>
+          <li>Contributed as Jr. Software Developer on <strong>ASP.NET Core</strong>, <strong>MVC</strong>, <strong>SQL</strong>, <strong>React.js</strong> projects.</li>
+          <li>Collaborated with <strong>Jira</strong> for agile project tracking and feature flagging.</li>
+          <li>Improved application performance by optimizing stored procedures and queries.</li>
+        </ul>
+        <p><strong>Key Project:</strong> Adventure of USA – Developed booking modules for events, passes, and tourist places with multi-instance configurations. Implemented membership discounts and role-based access flows.</p>
+        <p><strong>Technologies:</strong> ASP.NET Core, Web API, MVC, SQL, React.js, Jira</p>
+      </div>
+
+      <div class="job-item">
+        <h3>YSoft Solution</h3>
+        <span class="date">Mar 2022 – Mar 2023 | Ahmedabad, India</span>
+        <ul>
+          <li>Designed and developed MVC, Web API, SQL applications with enterprise workflows.</li>
+          <li>Built dynamic role-based menus from the database and approval workflows across multiple roles.</li>
+        </ul>
+        <p><strong>Key Project:</strong> PT Trakindo Cat – Created device management and user assignment modules for Admin → Customer → End-user hierarchy. Integrated approval workflows for CIpl and Cargo records.</p>
+        <p><strong>Technologies:</strong> ASP.NET MVC, SQL Server, GitHub</p>
+      </div>
+
+      <div class="job-item">
+        <h3>Avyak Infoways</h3>
+        <span class="date">Jun 2021 – Feb 2022 | Ahmedabad, India</span>
+        <ul>
+          <li>Developed web applications using <strong>ASP.NET MVC</strong>, <strong>Blazor</strong>, and <strong>Web API</strong>.</li>
+          <li>Worked with stored procedures and LINQ for efficient database operations.</li>
+        </ul>
+        <p><strong>Key Projects:</strong></p>
+        <ul>
+          <li><strong>RoboSensei:</strong> Student Attendance System with roles (Admin, Teacher, Student).</li>
+          <li><strong>DVC:</strong> Government Water Management Project for tracking industrial water usage.</li>
+        </ul>
+        <p><strong>Technologies:</strong> ASP.NET Core, Blazor, SQL, GitHub</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- Skills Section -->
     <section id="skills">
@@ -653,52 +707,78 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Adventure of USA</h3>
-                    <p>Web application for managing passes, events, and tourist bookings across various attractions in the USA.</p>
-                    <div class="project-tech">
-                        <span>ASP.NET Core</span>
-                        <span>MVC</span>
-                        <span>SQL</span>
-                        <span>React.js</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>PT Trakindo Cat</h3>
-                    <p>Caterpillar dealer application for Indonesia with dynamic menu system based on user roles and permissions.</p>
-                    <div class="project-tech">
-                        <span>ASP.NET MVC</span>
-                        <span>SQL 2018</span>
-                        <span>GitHub</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>RoboSensei</h3>
-                    <p>Student attendance system with role-based access control and advanced reporting features using LINQ and SQL procedures.</p>
-                    <div class="project-tech">
-                        <span>ASP.NET Core</span>
-                        <span>SQL 2018</span>
-                        <span>GitHub</span>
-                        <span>Blazor</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>DVC</h3>
-                    <p>Jharkhand water management system for industries with monitoring and reporting capabilities.</p>
-                    <div class="project-tech">
-                        <span>ASP.NET Core</span>
-                        <span>SQL 2018</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Projects Section -->
+<section id="projects">
+  <div class="container">
+    <div class="section-title">
+      <h2>Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Enterprise Access Management System</h3>
+        <p>
+          Developed at <strong>Spectra Technovision (India) Pvt. Ltd.</strong>, this system manages 
+          <strong>attendance, access control, and employee workflows</strong> across multiple clients. 
+          Implemented role-based authentication, real-time attendance dashboards, approval workflows, 
+          and API integrations for external devices.
+        </p>
+        <div class="project-tech">
+          <span>ASP.NET Core</span>
+          <span>MVC</span>
+          <span>Web API</span>
+          <span>SQL Server</span>
+          <span>Oracle</span>
+          <span>React.js</span>
+          <span>GitHub</span>
+          <span>Jira</span>
         </div>
-    </section>
+      </div>
+
+      <div class="project-card">
+        <h3>Adventure of USA</h3>
+        <p>Web application for managing passes, events, and tourist bookings across various attractions in the USA.</p>
+        <div class="project-tech">
+          <span>ASP.NET Core</span>
+          <span>MVC</span>
+          <span>SQL</span>
+          <span>React.js</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>PT Trakindo Cat</h3>
+        <p>Caterpillar dealer application for Indonesia with dynamic menu system based on user roles and permissions.</p>
+        <div class="project-tech">
+          <span>ASP.NET MVC</span>
+          <span>SQL 2018</span>
+          <span>GitHub</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>RoboSensei</h3>
+        <p>Student attendance system with role-based access control and advanced reporting features using LINQ and SQL procedures.</p>
+        <div class="project-tech">
+          <span>ASP.NET Core</span>
+          <span>SQL 2018</span>
+          <span>GitHub</span>
+          <span>Blazor</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>DVC</h3>
+        <p>Jharkhand water management system for industries with monitoring and reporting capabilities.</p>
+        <div class="project-tech">
+          <span>ASP.NET Core</span>
+          <span>SQL 2018</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- Education Section -->
     <section id="education">
@@ -715,29 +795,6 @@
                 <h3>Diploma in Computer Engineering</h3>
                 <p>Govt. Polytechnics College, Ahmedabad</p>
                 <p>Completed: June 2021</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Personal Details Section -->
-    <section id="personal">
-        <div class="container">
-            <div class="section-title">
-                <h2>Personal Details</h2>
-            </div>
-            <div class="personal-details">
-                <div class="detail-item">
-                    <h3>Date of Birth</h3>
-                    <p>13/02/2003</p>
-                </div>
-                <div class="detail-item">
-                    <h3>Gender</h3>
-                    <p>Male</p>
-                </div>
-                <div class="detail-item">
-                    <h3>Languages</h3>
-                    <p>English, Hindi, Marathi, Gujarati</p>
-                </div>
             </div>
         </div>
     </section>
